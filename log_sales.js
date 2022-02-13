@@ -99,7 +99,6 @@ $(document).ready(function() {
             if (hasFocus) {
                 enterContent();
             }
-           // alert('You pressed enter!');
         }
     });
     
