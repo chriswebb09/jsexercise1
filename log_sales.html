@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Columbia Paper Infinity</title>
+        <!-- JQuery -->
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!-- bootstrap same as before -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="log_sales.js"></script>
+        <link rel="stylesheet" href="log_sales.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col" id="header">
+                    <h1>Columbia Paper Infinity</h1>
+                </div>
+            </div>
+            <div class="row" id="input-container">
+                <label for="inputPassword" class="col-sm-3 col-form-label text-center" id="text-label">Log your paper sales:</label>
+                <div class="col-sm-5">
+                    <input class="form-control" type="text" placeholder="Client" aria-label="Client" id="client-text-form">
+                </div>
+                <div class="col-sm-2">
+                    <input class="form-control" type="text" placeholder="# Reams" aria-label="#Reams", id="reams-text-form">
+                </div>
+                <div class="col-sm-1">
+                    <button type="button" class="btn btn-primary" id="submit-button">Submit</button>
+                </div>
+            </div>
+            <div class="row" id="clients-container">
+                <div class="col">
+                    <div class="row" id="sale-list-header">
+                        <div class="col-sm-2 text-left">
+                            <strong class="sale-text">Name</strong>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-4 text-left">
+                            <strong class="sale-text">Company</strong>
+                        </div>
+                       
+                        <div class="col-sm-2">
+                            <strong class="sale-text">Reams #</strong> 
+                        </div>
+                        <div class="col-sm-3"></div>
+                    </div>
+                    <div id="sale-list"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
