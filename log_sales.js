@@ -53,6 +53,7 @@ function isEmpty(str) {
 function enterContent() {
     var client = $('#client-text-form').val();
     var reams = $('#reams-text-form').val();
+    
     if (isEmpty(client)) {
         alert("You must enter a client name.");
         document.getElementById("client-text-form").focus();
@@ -64,6 +65,7 @@ function enterContent() {
         document.getElementById("reams-text-form").focus();
         return;
     }
+
     if (isNaN(parseInt(reams))) {
         alert("Entry must be a number");
         document.getElementById("reams-text-form").focus();
@@ -76,6 +78,7 @@ function enterContent() {
             source: clients
         });
     }
+
     show();
     addSaleItem(client, reams);
     clearEntry();
