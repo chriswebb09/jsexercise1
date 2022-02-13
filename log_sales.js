@@ -50,6 +50,38 @@ function isEmpty(str) {
     return (!str || str.length === 0 );
 }
 
+function enterContent() {
+    var client = $('#client-text-form').val();
+    var reams = $('#reams-text-form').val();
+    if (isEmpty(client)) {
+        alert("You must enter a client name.");
+        document.getElementById("client-text-form").focus();
+        return;
+    }
+    
+    if (isEmpty(reams)) {
+        alert("You must enter a value");
+        document.getElementById("reams-text-form").focus();
+        return;
+    }
+    if (isNaN(parseInt(reams))) {
+        alert("Entry must be a number");
+        document.getElementById("reams-text-form").focus();
+        return;
+    }
+
+    if (!clients.includes(client)) {
+        clients.push(client);
+        $('#client-text-form').autocomplete({
+            source: clients
+        });
+    }
+    show();
+    addSaleItem(client, reams);
+    clearEntry();
+    document.getElementById("client-text-form").focus();
+}
+
 $(document).ready(function() {
     hide();
 
@@ -58,35 +90,17 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "#submit-button", function() {
-        var client = $('#client-text-form').val();
-        var reams = $('#reams-text-form').val();
-        
-        if (isEmpty(client)) {
-            alert("You must enter a client name.");
-            document.getElementById("client-text-form").focus();
-            return;
-        }
-        if (isEmpty(reams)) {
-            alert("You must enter a value");
-            document.getElementById("reams-text-form").focus();
-            return;
-        }
-        if (isNaN(parseInt(reams))) {
-            alert("Entry must be a number");
-            document.getElementById("reams-text-form").focus();
-            return;
-        }
+        enterContent();
+    });
 
-        if (!clients.includes(client)) {
-            clients.push(client);
-            $('#client-text-form').autocomplete({
-                source: clients
-            });
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            var hasFocus = $('#reams-text-form').is(':focus');
+            if (hasFocus) {
+                enterContent();
+            }
+           // alert('You pressed enter!');
         }
-        show();
-        
-        addSaleItem(client, reams);
-        clearEntry();
     });
     
     $(document).on("click", ".delete-button", function() {
